@@ -29,6 +29,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+/**
+ * According to specialists, Group lets you position elements absolutely,
+ * but with xxxPane's elements are positioned using a layoutmanager.
+ * Look into BorderPane, FlowPane, GridPane and the other Pane extensions.
+ */
 public class PhotosFullScreen extends Group {
     private Stage stage;
     private ImageView imageView1 = new ImageView();
