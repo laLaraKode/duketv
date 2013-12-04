@@ -167,15 +167,15 @@ public class PhotosFullScreen extends Group {
 
     @Override
     protected void layoutChildren() {
-        final int w = (int) stage.getWidth();
-        final int h = (int) stage.getHeight();
-        final int tbw = (int) (toolBar.prefWidth(-1) + .5);
-        final int tbh = (int) (toolBar.prefHeight(-1) + .5);
+        final int w = (int)stage.getWidth();
+        final int h = (int)stage.getHeight();
+        final int tbw = (int)(toolBar.prefWidth(-1)+.5);
+        final int tbh = (int)(toolBar.prefHeight(-1)+.5);
         imageView1.setFitHeight(w);
-        //imageView1.setFitWidth(h);
+        imageView1.setFitHeight(h);
         imageView1.setPreserveRatio(true);
         imageView2.setFitHeight(w);
-        //imageView2.setFitWidth(h);
+        imageView2.setFitHeight(h);
         imageView2.setPreserveRatio(true);
         System.out.printf("FitHeight %s FitWidth %s\n", w, h);
         toolBar.resizeRelocate((w - tbw) / 2, h - 20 - tbh, tbw, tbh);
@@ -219,20 +219,12 @@ public class PhotosFullScreen extends Group {
 
     private void setImage(ImageView imageView, Image image) {
         if (image != null) {
-            double width = image.getRequestedWidth();
-            double height = image.getHeight();
-
-            double spacing = 1680 - width;
-            double margin = spacing / 2;
-            System.out.println("margin = " + margin);
-            imageView.setX(3);
-            imageView.setY(4);
 
         }
         imageView.setImage(image);
     }
 
     private Image getNullsafeImageFromFile(File imageFile) {
-        return imageFile == null ? null : new Image(imageFile.toURI().toString(), false);
+        return imageFile == null ? null : new Image(imageFile.toURI().toString(), 0, 1200, true, true, false);
     }
 }
